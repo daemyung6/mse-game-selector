@@ -1,0 +1,36 @@
+{
+  "name": "game-selecter",
+  "version": "0.0.4",
+  "description": "game-selecter",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development electron index.js",
+    "startp": "cross-env NODE_ENV=production electron index.js",
+    "pack": "build --dir",
+    "dist": "electron-builder --publish never",
+    "publish": "electron-builder --publish onTag"
+  },
+  "author": "hong daemyung",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "electron": "^11.0.2",
+    "electron-builder": "^22.9.1"
+  },
+  "build": {
+    "appId": "game-selecter",
+    "asar": false,
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "dependencies": {
+    "net": "^1.0.2",
+    "node-arp": "^1.0.6",
+    "ping": "^0.4.0",
+    "request": "^2.88.2",
+    "wol": "^1.0.7",
+    "ws": "^7.4.5"
+  }
+}
