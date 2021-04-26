@@ -13,7 +13,7 @@ let tray = null;
 app.on('ready', () => {
   tray = new Tray(path.join(__dirname, './src/icon/img.png'))
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'game-selecter version : ' + app.getVersion() },
+    { label: 'game-selector version : ' + app.getVersion() },
     { label: '설정파일 열기' , click() {
       var spawnObj = require('child_process').spawn,
       progToOpen = spawnObj('C:/windows/notepad.exe', [path.join(__dirname, '/config/data.js')]);
@@ -24,7 +24,7 @@ app.on('ready', () => {
     }},
     { label: '닫기' , click() { app.quit() }},
   ])
-  tray.setToolTip('game-selecter\nversion : ' + app.getVersion())
+  tray.setToolTip('game-selector\nversion : ' + app.getVersion())
   tray.setContextMenu(contextMenu)
 
   const {screenWidth, screenHeight} = electron.screen.getPrimaryDisplay().workAreaSize;
