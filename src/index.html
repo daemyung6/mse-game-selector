@@ -16,7 +16,7 @@
     <div class="right">
         <div class="gamelist listdiv">
             <div class="title">게임 선택</div>
-            <div class="list">
+            <div class="list" id="gameList">
                 <!-- <div>
                     <input type="checkbox"> 01. 어푸어푸! 사람이 물에 빠졌어요!
                 </div> -->
@@ -24,20 +24,20 @@
         </div>
         <div class="controlbtzone">
             추가
-            <div class="bt"><img src="./img/aroow.png" alt=""></div>
-            <div class="bt"><img src="./img/aroow.png" alt=""></div>
+            <div class="bt" id="gameListAddBt"><img src="./img/aroow.png" alt=""></div>
+            <div class="bt" id="gameListDeleteBt"><img src="./img/aroow.png" alt=""></div>
             제거
         </div>
         <div class="selectlist listdiv">
             <div class="title">선택 된 게임</div>
-            <div class="list">
+            <div class="list" id="selectedList">
                 <!-- <div>
                     <input type="checkbox"> 01. 어푸어푸! 사람이 물에 빠졌어요!
                 </div> -->
             </div>
             <div class="bts">
-                <div class="bt">초기화 <img src="./img/refresh-ccw.png" alt=""></div>
-                <div class="bt">선택완료 <img src="./img/aroow.png" alt=""></div>
+                <div class="bt" id="gameListResetBt">초기화 <img src="./img/refresh-ccw.png" alt=""></div>
+                <div class="bt" id="gameListSubmitBt">선택완료 <img src="./img/aroow.png" alt=""></div>
             </div>
         </div>
     </div>
@@ -53,21 +53,7 @@
                     <div class="seat">
                         <div class="zone"></div>
                         <div class="load"></div>
-                        <div class="zone">
-                            <!-- 
-                                <div>01</div>
-                                <div>192.168.0.37</div>
-                             -->
-                        </div>
                         <div class="zone"></div>
-                        <div class="load"></div>
-                        <div class="zone"></div>
-                        <div class="zone"></div>
-                        <div class="load"></div>
-                        <div class="zone"></div>
-                    </div>
-                    <div class="empty"></div>
-                    <div class="seat">
                         <div class="zone"></div>
                         <div class="load"></div>
                         <div class="zone"></div>
@@ -89,16 +75,6 @@
                         <div class="zone"></div>
                         <div class="load"></div>
                         <div class="zone"></div>
-                    </div>
-                    <div class="empty"></div>
-                    <div class="empty"></div>
-                    <div class="seat">
-                        <div class="zone"></div>
-                        <div class="load"></div>
-                        <div class="zone"></div>
-                        <div class="zone"></div>
-                        <div class="load"></div>
-                        <div class="zone"></div>
                         <div class="zone"></div>
                         <div class="load"></div>
                         <div class="zone"></div>
@@ -114,7 +90,42 @@
                         <div class="zone"></div>
                         <div class="load"></div>
                         <div class="zone"></div>
+                        <div class="zone"></div>
+                        <div class="load"></div>
+                        <div class="zone"></div>
                     </div>
+                    <div class="empty"></div>
+                    <div class="empty"></div>
+                    <div class="seat">
+                        <div class="zone"></div>
+                        <div class="load"></div>
+                        <div class="zone"></div>
+                        <div class="zone"></div>
+                        <div class="load"></div>
+                        <div class="zone"></div>
+                        <div class="zone"></div>
+                        <div class="load"></div>
+                        <div class="zone"></div>
+                        <div class="zone"></div>
+                        <div class="load"></div>
+                        <div class="zone"></div>
+                    </div>
+                    <div class="empty"></div>
+                    <div class="seat">
+                        <div class="zone"></div>
+                        <div class="load"></div>
+                        <div class="zone"></div>
+                        <div class="zone"></div>
+                        <div class="load"></div>
+                        <div class="zone"></div>
+                        <div class="zone"></div>
+                        <div class="load"></div>
+                        <div class="zone"></div>
+                        <div class="zone"></div>
+                        <div class="load"></div>
+                        <div class="zone"></div>
+                    </div>
+                    <div class="empty"></div>
                 </div>
             </div>
             <div class="powersetting">
@@ -148,7 +159,7 @@
             <div class="runlist">
                 <div class="title">실행 게임 리스트</div>
                 <hr>
-                <div class="list">
+                <div class="list" id="runList">
                     <!-- <div class="item">
                         <div class="name">01. 어푸어푸! 사람이 물에 빠졌어요!</div>
                         <div class="bt">실행</div>
@@ -156,19 +167,19 @@
                     </div> -->
                 </div>
                 <div class="btline">
-                    <div class="bt">게임 시작</div>
-                    <div class="bt">전체 종료</div>
+                    <div class="bt" id="autoPlayBt">게임 시작</div>
+                    <div class="bt" id="autoStopBt">전체 종료</div>
                 </div>
             </div>
             <div class="savesetting">
-                <div>
+                <div class="bt">
                     <div>게임 리스트 저장하기</div>
                     <div>
                         <img src="./img/save.png" alt="">
                     </div>
                 </div>
                 <hr>
-                <div>
+                <div class="bt">
                     <div>게임 리스트 불러오기</div>
                     <div>
                         <img src="./img/load.png" alt="">
@@ -178,5 +189,10 @@
         </div>
     </div>
 </body>
-<script src="./main.js"></script>
+<script type="module" src="./main.js"></script>
+<script>
+    document.getElementById('refresebt').onclick = function() {
+        location.reload()
+    }
+</script>
 </html>

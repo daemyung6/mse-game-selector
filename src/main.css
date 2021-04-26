@@ -4,7 +4,10 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: #E5E9F2;
-    overflow: hidden;
+    overflow: hidden;   
+}
+* {
+    transition: all 500ms;
 }
 
 @font-face {
@@ -18,6 +21,10 @@ html, body {
 @font-face {
     font-family: "GyeonggiTitleB";
     src: url("./font/GyeonggiTitleBold.ttf");
+}
+
+#refresebt {
+    cursor: pointer;
 }
 
 #head {
@@ -108,6 +115,7 @@ html, body {
     letter-spacing: normal;
     text-align: left;
     color: #002984;
+    cursor: pointer;
 }
 .right .listdiv .list input {
     margin-right: 10px;
@@ -170,6 +178,9 @@ html, body {
 .right .selectlist .bts .bt img {
     margin-left: 33px;
     width: 15px;
+}
+.right .selectlist .bts .bt:nth-child(2) img {
+    transform: rotate(270deg);
 }
 .left {
     position: absolute;
@@ -257,31 +268,44 @@ html, body {
     border: solid 2px #002984;
     background-color: #ffffff;
     margin-left: -2px;
-    
+    display: inline-grid;
+    align-items: center;
+    overflow: hidden;
+    transition: all 500ms;
 }
+.left .main .seatbox .level .seat .chair div {
+    font-family: GyeonggiTitleL;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    text-align: center;
+    color: #002984;
+}
+
 .left .main .seatbox .level .seat .chair div:nth-child(1){
     font-family: GyeonggiTitleB;
-    font-size: 12px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.17;
-    letter-spacing: normal;
-    text-align: center;
-    color: #002984;
+    font-size: 20px;
 }
 .left .main .seatbox .level .seat .chair div:nth-child(2){
-    font-family: GyeonggiTitleL;
-    font-size: 12px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.17;
-    letter-spacing: normal;
-    text-align: center;
-    color: #002984;
+    font-family: GyeonggiTitleB;
+    font-size: 15px;
 }
-.zone.chair div {
+.left .main .seatbox .level .seat .chair div:nth-child(3){
+    font-size: 10px;
+}
+.left .main .seatbox .level .seat .disconnect {
+    border: solid 2px rgb(255 0 0);
+}
+.left .main .seatbox .level .seat .connect {
+    border: solid 2px #1eb343;
+}
+.left .main .seatbox .level .seat .select {
+    background-color: #8ac4ff;
+}
+.zone .chair div {
     display: inline-block;
     width: 100%;
 }
@@ -452,15 +476,13 @@ html, body {
 .left .right .runlist .list .item {
     width: 100%;
     height: 40px;
-
+    display: table;
 }
 .left .right .runlist .list .item .name {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width : calc(100% - 100px);
-    height : 100%;
-
+    width: calc(100% - 100px);
+    height: calc(100% - 10px);
     font-family: GyeonggiTitleM;
     font-size: 12px;
     font-weight: normal;
@@ -470,32 +492,41 @@ html, body {
     letter-spacing: -0.24px;
     text-align: left;
     color: #002984;
+    padding: 5px;
+    
+}
+.left .right .runlist .list .item .name div {
+    transition: name 0ms;
+}
+.left .right .runlist .list .item .selectName {
+    background-color: rgba(19, 113, 206, 0.5);
+    color: white;
 }
 
 .left .right .runlist .list .item .bt {
-
     display: inline-flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     width: 36px;
-  height: 26px;
-  object-fit: contain;
-  border-radius: 4px;
-  border: solid 1px #b6c1cc;
-  background-color: #ffffff;
-
-  font-family: GyeonggiTitleM;
-  font-size: 12px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.17;
-  letter-spacing: -0.24px;
-  text-align: center;
-  color: #b6c1cc;
+    height: 26px;
+    object-fit: contain;
+    border-radius: 4px;
+    border: solid 1px #b6c1cc;
+    background-color: #ffffff;
+    font-family: GyeonggiTitleM;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: -0.24px;
+    text-align: center;
+    color: #b6c1cc;
+    margin: 3px;
 }
-.left .right .runlist .list .select .name {
-
+.left .right .runlist .list .item .selectBt {
+    background-color:  #b6c1cc;
+    color: white;
 }
 .left .right .runlist .btline {
     width: 100%;
