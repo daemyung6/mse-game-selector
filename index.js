@@ -7,6 +7,7 @@ const Menu = electron.Menu;
 const path = require('path');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const scale = require('./config/data.js').scale;
 
 let tray = null;
 
@@ -28,8 +29,8 @@ app.on('ready', () => {
   tray.setContextMenu(contextMenu)
 
   const {screenWidth, screenHeight} = electron.screen.getPrimaryDisplay().workAreaSize;
-  const width = 1280;
-  const height = 720;
+  const width = 1600;
+  const height = 800;
   const x = (screenWidth - width) / 2;
   const y = (screenHeight - width) / 2;
 
@@ -49,7 +50,7 @@ app.on('ready', () => {
   
 
   window.webContents.on('dom-ready', () => {
-    window.webContents.setZoomFactor(0.8);
+    window.webContents.setZoomFactor(scale);
     if(isDevMode) {
       window.webContents.openDevTools();
     }

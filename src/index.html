@@ -127,16 +127,16 @@
                     </div>
                     <div class="empty"></div>
                 </div>
+                <div class="signback">뒤</div>
+                <div class="signfront">앞</div>
             </div>
             <div class="powersetting">
                 <div class="rightzone">
                     <div class="title">시스템 전원 관리</div>
                     <hr>
-                    <div>
-                        <div class="bt">전체 선택</div>
-                        <div class="bt">개별 선텍</div>
-                        <div class="bt">선택 완료</div>
-                        <div class="bt">선택 해제</div>
+                    <div class="btline">
+                        <div class="bt" id="pcAllSelectBt">전체 선택</div>
+                        <div class="bt" id="pcAllUnSelectBt">선택 해제</div>
                     </div>
                     <div id="powerState">
                         <div class="item">선택 좌석</div>
@@ -145,9 +145,10 @@
                     </div>
                 </div>
                 <div class="leftzone">
-                    <div class="title">시스템 전원 관리</div>
+                    <div class="title"></div>
                     <hr>
                     <div class="btbox">
+                        <div class="bt">PC RESET</div>
                         <div class="bt">PC ON</div>
                         <div class="bt">PC OFF</div>
                     </div>
@@ -172,14 +173,14 @@
                 </div>
             </div>
             <div class="savesetting">
-                <div class="bt">
+                <div class="bt" id="gameListSaveBt">
                     <div>게임 리스트 저장하기</div>
                     <div>
                         <img src="./img/save.png" alt="">
                     </div>
                 </div>
                 <hr>
-                <div class="bt">
+                <div class="bt" id="gameListLoadBt">
                     <div>게임 리스트 불러오기</div>
                     <div>
                         <img src="./img/load.png" alt="">
@@ -187,6 +188,68 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="savePage" id="savePage">
+        <div class="box">
+            <div class="title">게임 리스트를 저장하시겠습니까?</div>
+            <hr>
+            <div class="list">
+                <!-- <div>01. 어푸어푸! 사람이 물에 빠졌어요!</div> -->
+            </div>
+            <div class="bottom">
+                <div class="left">
+                    <div>
+                        <div>
+                            리스트 제목
+                        </div>
+                        <div>
+                            <input type="text" name="" id="saveNameInput" value="청소년용 게임 리스트">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            저장 날짜
+                        </div>
+                        <div id="saveDate">
+                            <!-- 2021년 00월 00일, 00시 00분 -->
+                        </div>
+                    </div>
+                    <div class="block"></div>
+                </div>
+                <div class="right">
+                    <div class="bt" id="savePageLoadBt">불러오기 <img src="./img/refresh-ccw.png" alt=""></div>
+                    <div class="bt" id="saveBt">저장하기 <img src="./img/save-white.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <img id="savePageCloseBt" class="bt" src="./img/close.png" alt="">
+    </div>
+    <div class="saveListPage" id="saveListPage">
+        <div class="box">
+            <div class="title">저장된 게임 리스트 불러오기</div>
+            <hr>
+            <div class="head">
+                <div>제목</div>
+                <div>저장 날짜</div>
+            </div>
+            <div class="list">
+                <!-- <div>
+                    <div>
+                        <input type="checkbox" name="" id="">01. 생존수영
+                    </div>
+                    <div>
+                        2021년 00월 00일, 00시 00분
+                    </div>
+                    <div>
+                        <div class="bt">삭제</div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="bottom">
+                <div class="bt" id="loadBt">불러오기 <img src="./img/refresh-ccw.png" alt=""></div>
+            </div>
+        </div>
+        <img id="saveListPageCloseBt" class="bt" src="./img/close.png" alt="">
     </div>
 </body>
 <script type="module" src="./main.js"></script>

@@ -244,6 +244,33 @@ html, body {
     align-items: center;
     overflow: hidden;
 }
+.left .main .seatbox .signback {
+    font-family: GyeonggiTitleM;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: center;
+    color: #b6c1cc;
+    position: absolute;
+    top: 90px;
+    
+}
+.left .main .seatbox .signfront {
+    font-family: GyeonggiTitleM;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: center;
+    color: #b6c1cc;
+    position: absolute;
+    bottom: 190px;
+}
 .left .main .seatbox .level {
     display: inline-table;
     width: 93%;
@@ -265,7 +292,7 @@ html, body {
 }
 .left .main .seatbox .level .seat .chair {
     border-radius: 10px;
-    border: solid 2px #002984;
+    border: solid 3px #002984;
     background-color: #ffffff;
     margin-left: -2px;
     display: inline-grid;
@@ -297,13 +324,13 @@ html, body {
     font-size: 10px;
 }
 .left .main .seatbox .level .seat .disconnect {
-    border: solid 2px rgb(255 0 0);
+    border: solid 3px rgb(255 111 111);
 }
 .left .main .seatbox .level .seat .connect {
-    border: solid 2px #1eb343;
+    border: solid 3px #1eb343;
 }
 .left .main .seatbox .level .seat .select {
-    background-color: #8ac4ff;
+    background-color: #bbe6ff;
 }
 .zone .chair div {
     display: inline-block;
@@ -334,7 +361,7 @@ html, body {
     margin: 0px;
 }
 .left .main .powersetting .rightzone {
-    width: calc(100%* 2 / 3 - 40px);
+    width: calc(100% / 2 - 40px);
     height: calc(100% - 40px);
     display: inline-table;
 }
@@ -346,6 +373,7 @@ html, body {
     display: flex;
     align-items: center;
 }
+
 .left .main .powersetting div .title {
     font-family: GyeonggiTitleM;
   font-size: 20px;
@@ -396,12 +424,15 @@ html, body {
 .left .main .powersetting .textbox {
     display: block;
 }
+.left .main .powersetting .rightzone .btline {
+    height: calc(100% / 3 + 20%);
+}
 .left .main .powersetting .leftzone {
     margin-left: 0px;
     display: inline-table;
     float: right;
     height: calc(100% - 40px);
-    width: calc(100%* 1 / 3 - 20px);
+    width: calc(100% / 2 - 20px);
 }
 .left .main .powersetting .leftzone .btbox {
     height: calc(100% * 2/ 3);
@@ -413,7 +444,7 @@ html, body {
     border: solid 1px #002984;
     background-color: #1eb343;
     height : 70%;
-    margin: 12px;
+    margin: 4px;
     width: 40%;
     font-family: GyeonggiTitleM;
     font-size: 12px;
@@ -484,7 +515,7 @@ html, body {
     width: calc(100% - 100px);
     height: calc(100% - 10px);
     font-family: GyeonggiTitleM;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -649,4 +680,332 @@ html, body {
     width : calc(100% - 40px);
     background-color: #002984;
     margin: 0px 20px 0px 20px;
+}
+.savePage {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 10, 31, 0.7);
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.savePage .box {
+    width: 680px;
+    height: 600px;
+    display: inline-block;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.08);
+    border: solid 1px #1371ce;
+    background-color: #ffffff;
+}
+#savePageCloseBt {
+    position: absolute;
+    top: calc(50% - 336px);
+    left: calc(50% + 339px);
+    
+}
+.savePage .box .title {
+    font-family: GyeonggiTitleM;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: #1371ce;
+    align-items: center;
+    height: 40px;
+    width: calc(100% - 40px);
+    margin: 20px;
+
+}
+.savePage .box hr {
+    width: calc(100% - 40px);
+    height: 0.5px;
+    background-color: #002984;
+    margin: 0px 20px 0px 20px;
+}
+.savePage .box .list {
+    width: calc(100% - 40px);
+    margin: 0px 20px 0px 20px;
+    height: 440px;
+    font-family: GyeonggiTitleM;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: -0.24px;
+    text-align: left;
+    color: #002984;
+    overflow-y: scroll;
+}
+.savePage .box .list div {
+    margin: 10px;
+}
+.savePage .box .bottom {
+    width: calc(100% - 40px);
+    height: 40px;
+    padding: 0px;
+    margin: 20px;
+}
+.savePage .box .bottom div {
+    top: unset;
+    left: unset;
+    position: relative;
+    width: 100%;
+    height: 50%;
+    display: inline-flex;
+    border: unset;
+    background-color: unset;
+    align-items: center;
+
+}
+.savePage .box .bottom .left {
+    width: 49%;
+    height: 100%;
+    display: inline-grid;
+}
+.savePage .box .bottom .left div {
+    width: 100%;
+    height: 50%;
+}
+.savePage .box .bottom .left div div {
+    display: inline-flex;
+    font-family: GyeonggiTitleM;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.5;
+    letter-spacing: -0.24px;
+    text-align: left;
+    color : #717880;
+}
+.savePage .box .bottom .left div div:nth-child(1) {
+    width: 100px;
+    color: #002984;
+    padding: 0px 0px 0px 14px;
+}
+.savePage .box .bottom .left div div:nth-child(2) {
+    width: calc(100%-100px);
+}
+.savePage .box .bottom .left div div input {
+    border: 0px;
+    font-family: GyeonggiTitleM;
+    font-size: 16px;
+    color: #717880;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.5;
+    letter-spacing: -0.24px;
+    text-align: left;
+}
+.savePage .box .bottom .left .block {
+    width: 8px;
+    height: 40px;
+    position: absolute;
+    background-color: #002984;
+}
+.savePage .box .bottom .right {
+    width: 49%;
+    height: 100%;
+}
+.savePage .box .bottom .right .bt {
+    width: 140px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 4px;
+    align-items: center;
+    background-color: #b6c1cc;
+    font-family: GyeonggiTitleM;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: -0.24px;
+    text-align: left;
+    color: #ffffff;
+    margin: 5px;
+}
+.savePage .box .bottom .right .bt:nth-child(2) {
+    background-color : #1371ce;
+}
+.savePage .box .bottom .right .bt img {
+    width: 20px;
+    margin-left: 50px;
+}
+
+
+.saveListPage {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 10, 31, 0.7);
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-family: GyeonggiTitleM;
+    font-size: 18px;
+}
+.saveListPage .box {
+    width: 680px;
+    height: 600px;
+    display: inline-block;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.08);
+    border: solid 1px #1371ce;
+    background-color: #ffffff;
+}
+#savePageCloseBt {
+    position: absolute;
+    top: calc(50% - 336px);
+    left: calc(50% + 339px);
+    
+}
+#saveListPageCloseBt {
+    position: absolute;
+    top: calc(50% - 336px);
+    left: calc(50% + 339px);
+    
+}
+.saveListPage .box .title {
+    font-family: GyeonggiTitleM;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: #1371ce;
+    align-items: center;
+    height: 40px;
+    width: calc(100% - 40px);
+    margin: 20px;
+
+}
+.saveListPage .box hr {
+    width: calc(100% - 40px);
+    height: 0.5px;
+    background-color: #002984;
+    margin: 0px 20px 0px 20px;
+}
+.saveListPage .box .head {
+    width: calc(100% - 40px);
+    margin: 20px;
+}
+.saveListPage .box .head div {
+    display: inline-flex;
+}
+.saveListPage .box .head div:nth-child(1) {
+    width: 341px;
+}
+.saveListPage .box .head div:nth-child(2) {
+    width: calc(99% * 2 / 5);
+}
+.saveListPage .box .list {
+    width: calc(100% - 40px);
+    margin: 0px 20px 0px 20px;
+    height: 380px;
+    font-family: GyeonggiTitleM;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: -0.24px;
+    text-align: left;
+    color: #002984;
+    overflow-y: scroll;
+}
+.saveListPage .box .list div {
+    margin: 10px 0px 10px 0px; 
+    display: flex;
+}
+.saveListPage .box .list div div {
+    margin: 10px 0px 10px 0px; 
+    display: inline-flex;
+}
+.saveListPage .box .list div div:nth-child(1) {
+    width: calc(99% * 3 / 5 - 20px);
+    cursor: pointer;
+}
+.saveListPage .box .list div div:nth-child(2) {
+    width: calc(99% * 2 / 5 - 40px);
+    font-size: 15px;
+    cursor: pointer;
+}
+.saveListPage .box .list div div:nth-child(3) {
+    width: 40px;
+}
+.saveListPage .box .list div div:nth-child(3) .bt {
+    margin: -5px 0px 0px 0px;
+    width: 40px;
+    height: 20px;
+    display: inline-flex;
+    border: solid;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+
+}
+.saveListPage .box .bottom {
+    width: calc(100% - 40px);
+    height: 40px;
+    padding: 0px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.saveListPage .box .bottom .bt {
+    width: 140px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 4px;
+    align-items: center;
+    background-color: #1371ce;
+    font-family: GyeonggiTitleM;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: -0.24px;
+    text-align: left;
+    color: #ffffff;
+    margin: 5px;
+}
+
+.saveListPage .box .bottom .bt img {
+    width: 20px;
+    margin-left: 50px;
+}
+
+.popUp {
+    z-index: 10;
+    opacity: 1;
 }

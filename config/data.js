@@ -43,6 +43,10 @@ module.exports = {
     ],
     remoteList : [
         {ip:"172.30.1.15", x:1, y:5},
+        {ip:"172.30.1.15", x:2, y:5},
+        {ip:"172.30.1.15", x:3, y:5},
+        {ip:"172.30.1.15", x:4, y:5},
+        {ip:"172.30.1.15", x:5, y:5},
 
         // {ip:"192.168.1.180", x:1, y:5},
         // {ip:"192.168.1.181", x:1, y:4},
@@ -84,5 +88,8 @@ module.exports = {
     ],
     remotePort : 8080,
     // programPath: "C:\\Games\\Games_40.exe",
-    programPath : "C:\\ilab\\test\\test-win"
+    programPath : "C:\\ilab\\test\\test-win",
+    scale : 0.8,
+
+    poRemotePort : 4545,
 }

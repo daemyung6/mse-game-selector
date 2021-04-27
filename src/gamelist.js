@@ -1,16 +1,18 @@
-let gameList;
-let gameListDiv;
-let selectedListDiv;
-let gameListAddBt;
-let gameListDeleteBt;
-let gameListResetBt;
-let gameListSubmitBt;
-let runListDiv;
-let programPath;
+const gameList = require('../config/data.js').gameList;
+const programPath = require('../config/data.js').programPath;
+const gameListDiv = document.getElementById('gameList');
+const selectedListDiv = document.getElementById('selectedList');
+const gameListAddBt = document.getElementById('gameListAddBt');
+const gameListDeleteBt = document.getElementById('gameListDeleteBt');
+const gameListResetBt = document.getElementById('gameListResetBt');
+const gameListSubmitBt = document.getElementById('gameListSubmitBt');
+const runListDiv = document.getElementById('runList');
+const autoPlayBt = document.getElementById('autoPlayBt');
+const autoStopBt = document.getElementById('autoStopBt');
+
+
 let allLaunchGame;
 let allExitGame;
-let autoPlayBt;
-let autoStopBt;
 
 let isAutoPlay = false;
 let autoPlayNum = 0;
@@ -44,12 +46,13 @@ function updateList() {
     }
     selectedListDiv.appendChild(div);
   }
-  console.log(selectList);
-  console.log(selectedList)
 }
 
-function updateRunlist() {
+function updateRunlist(list) {
   runList = [];
+  if(list) {
+    selectedList = list
+  }
 
   runListDiv.innerHTML = null;
   for (let i = 0; i < selectedList.length; i++) {
@@ -102,20 +105,8 @@ function initlist() {
 
 
 function init(args) {
-  gameList = args.gameList;
-  gameListDiv = args.gameListDiv;
-  selectedListDiv = args.selectedListDiv;
-  gameListAddBt = args.gameListAddBt;
-  gameListDeleteBt = args.gameListDeleteBt;
-  gameListResetBt = args.gameListResetBt;
-  gameListSubmitBt = args.gameListSubmitBt;
-  runListDiv = args.runListDiv;
   allLaunchGame = args.allLaunchGame;
-  programPath = args.programPath;
   allExitGame = args.allExitGame;
-  autoPlayBt = args.autoPlayBt;
-  autoStopBt = args.autoStopBt;
-
 
   initlist()
   
@@ -143,8 +134,8 @@ function init(args) {
         --i;
       }
     }
-    selectList.sort(function(a, b) { return a - b});
-    selectedList.sort(function(a, b) { return a - b});
+    selectList.sort(function(a, b) { return a - b });
+    selectedList.sort(function(a, b) { return a - b });
     updateList()
   }
   gameListSubmitBt.onclick = function() {
@@ -155,7 +146,6 @@ function init(args) {
     if(runListDiv.children.length == 0) {
       return;
     }
-    console.log(runListDiv.children[0].children[1])
     isAutoPlay = true;
     autoPlayNum = 0;
     runListDiv.children[0].children[1].onclick();
@@ -171,4 +161,5 @@ function getRunList() {
 module.exports = {
   init : init,
   getRunList : getRunList,
+  updateRunlist : updateRunlist,
 }

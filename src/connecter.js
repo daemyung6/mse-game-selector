@@ -1,11 +1,44 @@
 const WebSocket = require('ws');
 const seatsElements = document.getElementById("seats");
+const net = require('net');
+const wol = require('wol')
+const arp = require('node-arp');
+const pcAllSelectBt = document.getElementById('pcAllSelectBt');
+const pcAllUnSelectBt = document.getElementById('pcAllUnSelectBt');
 let remotes = [];
-let programPath;
+const config = require('../config/data.js');
+const remoteList = config.remoteList;
+const remotePort = config.remotePort;
+const programPath = config.programPath;
 
 let launchingCount = 0;
 
+
 function remote(ip, port, el) {
+  let isClick = false;
+  this.getIsClick = function() {
+    return isClick;
+  }
+  this.setIsClick = function(value) {
+    isClick = value;
+    if(value) {
+      el.classList.add('select');
+    }
+    else {
+      el.classList.remove('select');
+    }
+  }
+  el.onclick = function() {
+    if(isClick) {
+      el.classList.remove('select');
+    }
+    else {
+      el.classList.add('select');
+    }
+    isClick = !isClick;
+  }
+
+
   let ws;
   function setConnect() {
     el.classList.remove('disconnect');
@@ -56,7 +89,6 @@ function remote(ip, port, el) {
     });
     ws.on('message', function(data) {
       data = JSON.parse(data);
-      console.log(data)
       if(data.type == 'terminated') {
         el.children[1].innerText = "대기중";
         onExit()
@@ -77,8 +109,7 @@ function remote(ip, port, el) {
 }
 
 
-function init(remoteList, remotePort, Path) {
-  programPath = Path;
+function init() {
   remotes = [];
   for (let i = 0; i < remoteList.length; i++) {  
     let el = seatsElements
@@ -87,6 +118,8 @@ function init(remoteList, remotePort, Path) {
 
     el.classList.add('chair');
     el.classList.add('bt');
+    
+    
 
     var div = document.createElement('div');
     div.innerText = i + 1 < 10 ? `0${i + 1}` : i + 1;
@@ -101,6 +134,17 @@ function init(remoteList, remotePort, Path) {
     el.appendChild(div)
 
     remotes.push(new remote(remoteList[i].ip, remotePort, el));
+
+    pcAllSelectBt.onclick = function() {
+      for (let i = 0; i < remotes.length; i++) {
+        remotes[i].setIsClick(true);
+      }
+    }
+    pcAllUnSelectBt.onclick = function() {
+      for (let i = 0; i < remotes.length; i++) {
+        remotes[i].setIsClick(false);
+      }
+    }
   }
 }
 
@@ -133,7 +177,6 @@ function onExit() {
   --launchingCount
   
   if(launchingCount <= 0) {
-    console.log(launchingCount)
     if(typeof onExitCallback == "function") {
       onExitCallback();
     }
