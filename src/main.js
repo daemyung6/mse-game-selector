@@ -1,5 +1,4 @@
 const connecter = require("./connecter.js");
-connecter.init();
 
 const gamelist = require('./gamelist.js');
 gamelist.init({

@@ -1,6 +1,6 @@
 {
   "name": "game-selector",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "description": "game-selector",
   "main": "index.js",
   "scripts": {

@@ -1,4 +1,5 @@
 let lifeTime = 3000;
+let box;
 function show(msg) {
     let div = document.createElement('div');
     div.innerText = msg;
@@ -20,6 +21,10 @@ function show(msg) {
         top: 20px;
         transition: all 500ms;
     `
+    if(box) {
+        box.remove();
+    }
+    box = div;
     document.body.appendChild(div);
     setTimeout(function() {
         div.style.opacity = '1';
@@ -30,6 +35,7 @@ function show(msg) {
     }, lifeTime)
     setTimeout(function() {
         div.remove();
+        box = undefined;
     }, lifeTime + 500)
 }
 module.exports = {

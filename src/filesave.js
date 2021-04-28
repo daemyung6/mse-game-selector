@@ -43,6 +43,7 @@ function openSavePage(list) {
   tempStr += nowDate.getMonth() + 1 < 10 ? `0${nowDate.getMonth() + 1}` : nowDate.getMonth() + 1;
   tempStr += nowDate.getDate() < 10 ? `0${nowDate.getDate()}` : nowDate.getDate();
   saveNameInput.value = nowFileName = tempStr;
+  saveNameInput.focus();
 
   var tempStr = `${nowDate.getFullYear()}년 `
   tempStr += nowDate.getMonth() + 1 < 10 ? `0${nowDate.getMonth() + 1}` : nowDate.getMonth() + 1;
