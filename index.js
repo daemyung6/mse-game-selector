@@ -7,7 +7,7 @@ const Menu = electron.Menu;
 const path = require('path');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const scale = require('./config/data.js').scale;
+const config = require('./config/data.js');
 
 let tray = null;
 
@@ -37,6 +37,7 @@ app.on('ready', () => {
   let window = new BrowserWindow({
     fullscreenable: true,
     defaultEncoding: "utf8",
+    kiosk : isDevMode ? false : config.kiosk,
     x: x,
     y: y,
     width: width,
@@ -50,7 +51,7 @@ app.on('ready', () => {
   
 
   window.webContents.on('dom-ready', () => {
-    window.webContents.setZoomFactor(scale);
+    window.webContents.setZoomFactor(config.scale);
     if(isDevMode) {
       window.webContents.openDevTools();
     }

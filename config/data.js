@@ -90,7 +90,7 @@ module.exports = {
     remotePort : 8080,
     programPath: "C:\\Games\\Games_40.exe",
     // programPath : "C:\\ilab\\test\\test-win",
+    kiosk : true,
     scale : 0.8,
-
     pcRemotePort : 4545,
 }
