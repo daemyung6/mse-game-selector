@@ -7,7 +7,8 @@ const Menu = electron.Menu;
 const path = require('path');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const scale = require('./config/data.js').scale;
+const config = require('./config/data.js');
+
 
 let tray = null;
 
@@ -37,20 +38,21 @@ app.on('ready', () => {
   let window = new BrowserWindow({
     fullscreenable: true,
     defaultEncoding: "utf8",
+    kiosk : config.kiosk,
     x: x,
     y: y,
     width: width,
     height: height,
     autoHideMenuBar : true,
     webPreferences: {
-        nodeIntegration: true,
+      nodeIntegration: true,
     },
   })
   window.loadURL(`file://${__dirname}/src/index.html`);
   
 
   window.webContents.on('dom-ready', () => {
-    window.webContents.setZoomFactor(scale);
+    window.webContents.setZoomFactor(config.scale);
     if(isDevMode) {
       window.webContents.openDevTools();
     }

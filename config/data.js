@@ -43,11 +43,13 @@ module.exports = {
     ],
     localip : "172.30.1.15",
     remoteList : [
+        //test data
         // {ip:"172.30.1.15", x:1, y:5},
         // {ip:"172.30.1.16", x:2, y:5},
         // {ip:"172.30.1.17", x:3, y:5},
         // {ip:"172.30.1.18", x:4, y:5},
         // {ip:"172.30.1.43", x:5, y:5},
+        // {ip:"172.30.1.39", x:1, y:5},
 
         {ip:"192.168.1.180", x:1, y:5},
         {ip:"192.168.1.181", x:1, y:4},
@@ -91,6 +93,6 @@ module.exports = {
     programPath: "C:\\Games\\Games_40.exe",
     // programPath : "C:\\ilab\\test\\test-win",
     scale : 0.8,
-
+    kiosk : true,
     pcRemotePort : 4545,
 }

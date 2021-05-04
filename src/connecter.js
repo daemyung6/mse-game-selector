@@ -12,6 +12,7 @@ const pcTurnOnBt = document.getElementById('pcTurnOnBt');
 const pcTurnOffBt = document.getElementById('pcTurnOffBt');
 const selectedlist = document.getElementById('selectedlist');
 const selectednum = document.getElementById('selectednum');
+const pcLogOutBt = document.getElementById('pcLogOutBt');
 
 let remotes = [];
 const config = require('../config/data.js');
@@ -108,7 +109,6 @@ function updateSelectedUI() {
       }
     }
   }
-  console.log(str.length)
   if(str.length == 0) {
     str = "&#65279;";
   }
@@ -116,7 +116,7 @@ function updateSelectedUI() {
   selectednum.innerText = `총 ${counter}대`;
 }
 
-function remote(ip, port, el) {
+function remote(ip, port, el, startDelay) {
   let isClick = false;
   this.getIsClick = function() {
     return isClick;
@@ -164,7 +164,7 @@ function remote(ip, port, el) {
     ws.close()
     ws = null;
     setTimeout(function() {
-      if(!isOnline) { return }
+      if(!isOnline) {return}
       init()
     }, 2000)
   }
@@ -185,13 +185,13 @@ function remote(ip, port, el) {
 
     ws.on('open', function() {
       el.children[1].innerText = "연결";
-      updateMac()
       isOpened = true;
       isConnect = true;
       setConnect()
 
     });
     ws.on('close', function() {
+      console.log('on close')
       if(isOpened) {
         onDisconnect()
       }   
@@ -207,6 +207,9 @@ function remote(ip, port, el) {
       }
       if(data.type == 'launched') {
         el.children[1].innerText = "실행중";
+      }
+      if(data.type == 'logouted') {
+        el.children[1].innerText = "로그인";
       }
     });
     sendMsgfunc = function(msg) {
@@ -234,7 +237,10 @@ function remote(ip, port, el) {
       init()
     });
   }
-  updateMac()
+  setTimeout(function() {
+    updateMac()
+  }, startDelay)
+  
 
   function sendTcpMsg(msg, call) {
     var client = new net.Socket();
@@ -351,7 +357,7 @@ function init() {
     div.innerText = remoteList[i].ip;
     el.appendChild(div)
 
-    remotes.push(new remote(remoteList[i].ip, remotePort, el));
+    remotes.push(new remote(remoteList[i].ip, remotePort, el, i * 50));
 
     pcAllSelectBt.onclick = function() {
       for (let i = 0; i < remotes.length; i++) {
@@ -388,6 +394,15 @@ function init() {
     for (let i = 0; i < remotes.length; i++) {
       if(remotes[i].getIsClick()) {
         remotes[i].turnOff();
+      }
+    }
+  }
+  pcLogOutBt.onclick = function() {
+    for (let i = 0; i < remotes.length; i++) {
+      if(remotes[i].getIsClick()) {
+        remotes[i].sendMsg(JSON.stringify({
+          type : 'logout'
+        }))
       }
     }
   }

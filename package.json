@@ -1,7 +1,7 @@
 {
-  "name": "game-selector",
-  "version": "0.0.1",
-  "description": "game-selector",
+  "name": "mse-game-selector",
+  "version": "0.0.2",
+  "description": "mse-game-selector",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development electron index.js",
@@ -18,11 +18,12 @@
     "electron-builder": "^22.9.1"
   },
   "build": {
-    "appId": "game-selector",
+    "appId": "mse-game-selector",
     "asar": false,
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "include": "./installer.nsh"
     }
   },
   "dependencies": {

@@ -87,7 +87,7 @@ function saveFile() {
         return;
       }
       if(list.indexOf(nowFileName + '.json') != -1) {
-        if(!confirm('동일한 이름의 파일이 이미 존재합니다.\n덮어씌우시겠습니까?', "123123")) {
+        if(!confirm('동일한 이름의 파일이 이미 존재합니다.\n덮어씌우시겠습니까?')) {
           alertBox.show('파일 저장에 실패 했습니다.');
           closePage()
           return;
