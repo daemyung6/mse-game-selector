@@ -31,6 +31,10 @@ function updateList() {
     gameListDiv.appendChild(div);
     div.onclick = function() {
       div.children[0].checked = !div.children[0].checked;
+      console.log("do event")
+    }
+    div.children[0].onclick = function() {
+      div.children[0].checked = !div.children[0].checked;
     }
   }
 
@@ -42,7 +46,9 @@ function updateList() {
     `
     div.onclick = function() {
       div.children[0].checked = !div.children[0].checked;
-
+    }
+    div.children[0].onclick = function() {
+      div.children[0].checked = !div.children[0].checked;
     }
     selectedListDiv.appendChild(div);
   }
@@ -98,6 +104,9 @@ function initlist() {
     `
     gameListDiv.appendChild(div);
     div.onclick = function() {
+      div.children[0].checked = !div.children[0].checked;
+    }
+    div.children[0].onclick = function() {
       div.children[0].checked = !div.children[0].checked;
     }
   }

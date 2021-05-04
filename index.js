@@ -9,7 +9,6 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const config = require('./config/data.js');
 
-
 let tray = null;
 
 app.on('ready', () => {
