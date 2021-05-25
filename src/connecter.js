@@ -209,7 +209,7 @@ function remote(ip, port, el, startDelay) {
         el.children[1].innerText = "실행중";
       }
       if(data.type == 'logouted') {
-        el.children[1].innerText = "로그인";
+        el.children[1].innerText = "로그아웃";
       }
     });
     sendMsgfunc = function(msg) {

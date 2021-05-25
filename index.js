@@ -37,7 +37,7 @@ app.on('ready', () => {
   let window = new BrowserWindow({
     fullscreenable: true,
     defaultEncoding: "utf8",
-    kiosk : config.kiosk,
+    kiosk : isDevMode ? false : config.kiosk,
     x: x,
     y: y,
     width: width,
