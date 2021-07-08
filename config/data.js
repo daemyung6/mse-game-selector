@@ -41,10 +41,10 @@ module.exports = {
         {id: "43", title: "39. 큰 화재를 막는 소화기! 사전 화재 진압"},
         {id: "44", title: "40. 출동! 아라곤! 불법 조업을 단속하라!"}
     ],
-    localip : "172.30.1.1",
+    localip : "172.30.1.8",
     remoteList : [
         //test data
-        {ip:"172.30.1.1", x:1, y:5},
+        {ip:"172.30.1.8", x:1, y:5},
         // {ip:"172.30.1.16", x:2, y:5},
         // {ip:"172.30.1.17", x:3, y:5},
         // {ip:"172.30.1.18", x:4, y:5},
@@ -95,4 +95,6 @@ module.exports = {
     kiosk : true,
     scale : 0.8,
     pcRemotePort : 4545,
+    reScanstartDelay : 5000,
+    scanstartDelay : 100,
 }

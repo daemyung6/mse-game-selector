@@ -166,7 +166,7 @@ function remote(ip, port, el, startDelay) {
     setTimeout(function() {
       if(!isOnline) {return}
       init()
-    }, 2000)
+    }, 5000)
   }
 
   let sendMsgfunc;
@@ -177,6 +177,7 @@ function remote(ip, port, el, startDelay) {
   }
 
   function init() {
+    console.log('call init')
     ws = new WebSocket(`ws://${ip}:${port}`);
     el.children[1].innerText = "연결중";
 
@@ -196,7 +197,8 @@ function remote(ip, port, el, startDelay) {
         onDisconnect()
       }   
     })
-    ws.on('error', function() {
+    ws.on('error', function(e) {
+      console.log("err", e)
       onDisconnect()
     });
     ws.on('message', function(data) {
@@ -357,7 +359,7 @@ function init() {
     div.innerText = remoteList[i].ip;
     el.appendChild(div)
 
-    remotes.push(new remote(remoteList[i].ip, remotePort, el, i * 50));
+    remotes.push(new remote(remoteList[i].ip, remotePort, el, i * 1000));
 
     pcAllSelectBt.onclick = function() {
       for (let i = 0; i < remotes.length; i++) {
